@@ -5,5 +5,5 @@ module.exports = {
       500: "#8257e6"
     }}},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms"), require('tailwind-scrollbar'),],
 }
