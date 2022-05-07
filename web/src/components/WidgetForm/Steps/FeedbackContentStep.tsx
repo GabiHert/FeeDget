@@ -7,11 +7,13 @@ import { FormEvent, useState } from "react";
 interface FeedbackContentStepProps {
   feedbackType: FeedbackType;
   onFeedbackRestartRequested: () => void;
+  onFeedbackSent: () => void;
 }
 
 export function FeedbackContentStep({
   feedbackType,
   onFeedbackRestartRequested,
+                                      onFeedbackSent,
 }: FeedbackContentStepProps) {
   const feedbackTypeInfo = feedbackTypes[feedbackType];
   const [screenshot, setScreenshot] = useState<string | null>(null);
@@ -21,6 +23,7 @@ export function FeedbackContentStep({
     event.preventDefault();
     console.log(screenshot);
     console.log(comment);
+    onFeedbackSent()
   }
 
   return (
@@ -58,7 +61,8 @@ export function FeedbackContentStep({
           />
           <button
             type="submit"
-            className="p-2 bg-brand-500 rounded-md border-transparent flex-1 flex justify-center items-center text-sm hover:bg-brand-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500 transition-colors"
+            disabled={comment.length === 0}
+            className="p-2 bg-brand-500 rounded-md border-transparent flex-1 flex justify-center items-center text-sm hover:bg-brand-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500 transition-colors disabled:opacity-50 disabled:hober:bg-brand-500"
           >
             Send
           </button>
