@@ -61,10 +61,10 @@ export function Index() {
       )}
 
       <footer className="text-xs text-neutral-400">
-        Made with ❤️ by{" "}
+        Made with ❤️ by {" "}
         <a
           className="underline underline-offset-1"
-          href="https://www.linkedin.com/in/gabrielguinterherter/"
+          href="https://www.linkedin.com/in/gabrielguinterherter"
         >
           Gabriel Guinter Herter
         </a>
